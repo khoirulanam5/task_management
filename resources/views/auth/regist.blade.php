@@ -90,9 +90,15 @@
                                         <input type="password" name="password" id="password" class="form-control" required placeholder="Password">
                                     </div>
 
-                                    <div class="col-12 mt-4 d-flex justify-content-between gap-2">
-                                        <button type="submit" class="btn btn-primary fw-bold w-50">DAFTAR</button>
-                                        <a href="{{ route('login') }}" class="btn btn-outline-primary fw-bold w-50">LOGIN</a>
+                                    <div class="col-12 mt-4">
+                                        <button type="submit" class="btn btn-primary fw-bold w-100">DAFTAR</button>
+                                    </div>
+
+                                    <div class="col-12 text-center mt-3">
+                                        <small class="text-muted">
+                                            Sudah punya akun?
+                                            <a href="{{ route('login') }}" class="fw-bold text-decoration-none">Login di sini</a>
+                                        </small>
                                     </div>
                                 </form>
                             </div>

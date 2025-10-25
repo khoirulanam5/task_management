@@ -101,9 +101,15 @@
                                             <div class="invalid-feedback">Please enter your password!</div>
                                         </div>
 
-                                        <div class="col-12 mt-4 d-flex justify-content-between gap-2">
-                                            <button type="submit" class="btn btn-primary fw-bold w-50">LOGIN</button>
-                                            <a href="{{ route('regist') }}" class="btn btn-outline-primary fw-bold w-50">DAFTAR</a>
+                                        <div class="col-12 mt-4">
+                                            <button type="submit" class="btn btn-primary fw-bold w-100">LOGIN</button>
+                                        </div>
+
+                                        <div class="col-12 text-center mt-3">
+                                            <small class="text-muted">
+                                                Belum punya akun?
+                                                <a href="{{ route('regist') }}" class="fw-bold text-decoration-none">Daftar di sini</a>
+                                            </small>
                                         </div>
                                     </form>
                                 </div>
