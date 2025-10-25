@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use App\Models\User;
@@ -32,7 +33,11 @@ class AuthController extends Controller
         } catch (JWTException $err) {
             return back()->with('pesan', 'Terjadi kesalahan saat membuat token.');
         }
+
+        Auth::login(auth()->user());
+        $request->session()->regenerate();
         session(['jwt_token' => $token]);
+
         return redirect()->route('dashboard');
     }
 

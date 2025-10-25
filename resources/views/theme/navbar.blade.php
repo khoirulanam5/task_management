@@ -21,7 +21,7 @@
             <li class="nav-item lh-1 me-3">
                 <a href="javascript:void(0);" class="text-dark fw-semibold">Hi!
 
-                    {{-- <span>{{ auth()->user()->name }}</span> --}}
+                    <span>{{ auth()->user()->name }}</span>
                 </a>
             </li>
 
@@ -50,7 +50,7 @@
                                 </div>
                                 <div class="flex-grow-1">
 
-                                    <span class="fw-semibold d-block">{{ auth()->user()->username }}</span>
+                                    <span class="fw-semibold d-block">{{ auth()->user()->email }}</span>
                                     <small class="text-muted">{{ auth()->user()->name }}</small>
 
                                 </div>
