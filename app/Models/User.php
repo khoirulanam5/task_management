@@ -17,21 +17,22 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+
+    protected $primaryKey = 'user_id';
+
+    protected $fillable = ['name', 'username', 'email', 'password'];
+
+    public function tasks() 
+    {
+        return $this->hasMany(Task::class, 'user_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.
      *
      * @var list<string>
      */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    protected $hidden = ['password', 'remember_token'];
 
     /**
      * Get the attributes that should be cast.
