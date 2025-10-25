@@ -1,7 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
+// Authentikasi
+Route::get('login', [AuthController::class, 'index'])->name('login');
+Route::post('login', [AuthController::class, 'auth'])->name('auth');
+Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('regist', [AuthController::class, 'regist'])->name('regist');
+Route::post('regist', [AuthController::class, 'store'])->name('regist.store');
