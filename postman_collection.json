@@ -1,0 +1,108 @@
+{
+  "info": {
+    "name": "Task Management API",
+    "_postman_id": "abcd1234-abcd-1234-abcd-1234567890ab",
+    "description": "Postman collection untuk Task Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "regist",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Khoirul Anam\",\n  \"username\": \"anam\",\n  \"email\": \"anam@gmail.com\",\n  \"password\": \"anam123\"\n}"
+            },
+            "url": { "raw": "http://localhost:8000/regist", "protocol": "http", "host": ["localhost"], "port": "8000", "path": ["auth","regist"] }
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"anam@gmail.com\",\n  \"password\": \"anam123\"\n}"
+            },
+            "url": { "raw": "http://localhost:8000/login", "protocol": "http", "host": ["localhost"], "port": "8000", "path": ["auth","login"] }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Task",
+      "item": [
+        {
+          "name": "Get All Task",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer p1OGRaZnNaUTdNV3lWSUgwakFkNSs4TlhBWU85Q2NkcGtqcGtIb3VLa09TcTIiLCJtYWMiOiJiODIxNjQxMjE0MjU5ZWRlM2Y4YWU4MDBhMTM0NDBlZDA0NjE5OGQyMTVlM2E3MmI0MWQ2ZmE2Yjc3NTE2MDAyIiwidGFnIjoiIn0%3D" }
+            ],
+            "url": { "raw": "http://localhost:8000/task", "protocol": "http", "host": ["localhost"], "port": "8000", "path": ["task"] }
+          }
+        },
+        {
+          "name": "Create Task",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer p1OGRaZnNaUTdNV3lWSUgwakFkNSs4TlhBWU85Q2NkcGtqcGtIb3VLa09TcTIiLCJtYWMiOiJiODIxNjQxMjE0MjU5ZWRlM2Y4YWU4MDBhMTM0NDBlZDA0NjE5OGQyMTVlM2E3MmI0MWQ2ZmE2Yjc3NTE2MDAyIiwidGFnIjoiIn0%3D" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Submit report\",\n  \"description\": \"Submit the monthly report to manager\",\n  \"status\": \"To Do\",\n  \"deadline\": \"2025-10-30\"\n}"
+            },
+            "url": { "raw": "http://localhost:8000/task", "protocol": "http", "host": ["localhost"], "port": "8000", "path": ["task"] }
+          }
+        },
+        {
+          "name": "Get Task By ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              { "key": "Authorization", "value": "Bearer p1OGRaZnNaUTdNV3lWSUgwakFkNSs4TlhBWU85Q2NkcGtqcGtIb3VLa09TcTIiLCJtYWMiOiJiODIxNjQxMjE0MjU5ZWRlM2Y4YWU4MDBhMTM0NDBlZDA0NjE5OGQyMTVlM2E3MmI0MWQ2ZmE2Yjc3NTE2MDAyIiwidGFnIjoiIn0%3D" }
+            ],
+            "url": { "raw": "http://localhost:8000/task/1", "protocol": "http", "host": ["localhost"], "port": "8000", "path": ["task","1"] }
+          }
+        },
+        {
+          "name": "Update Task",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" },
+              { "key": "Authorization", "value": "Bearer p1OGRaZnNaUTdNV3lWSUgwakFkNSs4TlhBWU85Q2NkcGtqcGtIb3VLa09TcTIiLCJtYWMiOiJiODIxNjQxMjE0MjU5ZWRlM2Y4YWU4MDBhMTM0NDBlZDA0NjE5OGQyMTVlM2E3MmI0MWQ2ZmE2Yjc3NTE2MDAyIiwidGFnIjoiIn0%3D" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Submit report v2\",\n  \"description\": \"Update monthly report submission\",\n  \"status\": \"In Progress\",\n  \"deadline\": \"2025-10-31\"\n}"
+            },
+            "url": { "raw": "http://localhost:8000/task/1", "protocol": "http", "host": ["localhost"], "port": "8000", "path": ["task","1"] }
+          }
+        },
+        {
+          "name": "Delete Task",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              { "key": "Authorization", "value": "Bearer p1OGRaZnNaUTdNV3lWSUgwakFkNSs4TlhBWU85Q2NkcGtqcGtIb3VLa09TcTIiLCJtYWMiOiJiODIxNjQxMjE0MjU5ZWRlM2Y4YWU4MDBhMTM0NDBlZDA0NjE5OGQyMTVlM2E3MmI0MWQ2ZmE2Yjc3NTE2MDAyIiwidGFnIjoiIn0%3D" }
+            ],
+            "url": { "raw": "http://localhost:8000/task/1", "protocol": "http", "host": ["localhost"], "port": "8000", "path": ["task","1"] }
+          }
+        }
+      ]
+    }
+  ]
+}
