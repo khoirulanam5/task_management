@@ -1,61 +1,77 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Task Management System
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+Deskripsi singkat aplikasi
+Fitur utama:
+1. Autentikasi pengguna (Login & Register) menggunakan JWT
+2. CRUD task (Create, Read, Update, Delete)
+3. Filter dan sorting task berdasarkan status dan deadline
+4. Frontend responsif dengan Bootstrap
+5. Keamanan: user hanya dapat mengakses task milik mereka sendiri
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Langkah menjalankan sistem (Laravel)
+1. Clone repository
+git clone https://github.com/khoirulanam5/task_management.git
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+2. Install dependencies
+composer install
 
-## Learning Laravel
+3. Copy file environment
+cp .env.example .env
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+4. Generate key
+php artisan key:generate
+php artisan jwt:secret
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+5. Migrasi database
+php artisan migrate
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+6. Jalankan serve
+php artisan serve
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Teknologi yang digunakan
+Backend: Laravel 12
+Frontend: Bootstrap
+Database: MySQL
+Authentikasi: JWT (JSON Web Token)
+ORM: Eloquent
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+Informasi login dummy
+Nama: Khoirul Anam
+Username: anam
+Email: anam@gmail.com
+Password: anam
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Struktur Tabel
+Tabel users
+| Field    | Tipe    | Keterangan        |
+| -------- | ------- | ----------------- |
+| user_id  | int     | Primary key       |
+| name     | varchar | Nama pengguna     |
+| username | varchar | Username          |
+| email    | varchar | Email             |
+| password | varchar | Password (hashed) |
 
-## Code of Conduct
+Tabel Tasks
+| Field       | Tipe    | Keterangan                 |
+| ----------- | ------- | -------------------------- |
+| task_id     | int     | Primary key                |
+| user_id     | int     | Foreign key ke users       |
+| title       | varchar | Judul task                 |
+| description | text    | Deskripsi task             |
+| status      | enum    | To Do / In Progress / Done |
+| deadline    | date    | Tanggal selesai task       |
+| created_by  | varchar | Nama pembuat task          |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
+Screenshot tampilan utama
+screenshots/login.png - Halaman Login
+screenshots/dashboard.png - Halaman Dashboard
+screenshots/task_index.png - Menu task
+screenshots/task_create.png - Form create task
+screenshots/task_edit.png - Form edit task
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
