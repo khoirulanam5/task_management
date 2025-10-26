@@ -15,6 +15,6 @@ class DashboardController extends Controller
         $taskProgress = Task::where('user_id', auth()->id())->where('status', 'In Progress')->count();
         $taskDone = Task::where('user_id', auth()->id())->where('status', 'Done')->count();
 
-        return view('pages.dashboard', compact('totalTask', 'taskTodo', 'taskProgress', 'taskDone'));
+        return view('pages.dashboard.index', compact('totalTask', 'taskTodo', 'taskProgress', 'taskDone'));
     }
 }
