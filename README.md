@@ -69,9 +69,9 @@ Tabel Tasks
 
 
 Screenshot tampilan utama
-screenshots/login.png - Halaman Login
-screenshots/dashboard.png - Halaman Dashboard
-screenshots/task_index.png - Menu task
-screenshots/task_create.png - Form create task
-screenshots/task_edit.png - Form edit task
+screenshots/login.JPG - Halaman Login
+screenshots/dashboard.JPG - Halaman Dashboard
+screenshots/task_index.JPG - Menu task
+screenshots/task_create.JPG - Form create task
+screenshots/task_edit.JPG - Form edit task
 
