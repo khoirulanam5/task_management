@@ -11,17 +11,18 @@ class TaskController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $task = Task::where('user_id', auth()->user()->user_id)->orderBy('deadline', 'asc');
 
-        if ($request->has('status') && $request->status != '') {
+        if ($request->filled('status')) {
             $task->where('status', $request->status);
         }
         
         $tasks = $task->get();
+        $status = ['To Do', 'In Progress', 'Done'];
 
-        return view('pages.task.index', compact('tasks'));
+        return view('pages.task.index', compact('tasks', 'status'));
     }
 
     /**
@@ -38,7 +39,7 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|unique:tasks,title',
+            'title' => 'required|string',
             'description' => 'nullable|string',
             'status' => 'required|in:To Do,In Progress,Done',
             'deadline' => 'required|date'
@@ -78,7 +79,7 @@ class TaskController extends Controller
     public function update(Request $request, Task $task)
     {
         $request->validate([
-            'title' => 'required|string|unique:tasks,title,' . $task->task_id . ',task_id',
+            'title' => 'required|string',
             'description' => 'nullable|string',
             'status' => 'required|in:To Do,In Progress,Done',
             'deadline' => 'required|date'

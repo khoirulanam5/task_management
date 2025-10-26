@@ -68,7 +68,7 @@
 
                                     @if (session('pesan'))
                                         <div class="alert alert-danger alert-dismissible" role="alert">
-                                            <span class="fw-semibold" style="color: #be1c00 !important">
+                                            <span class="fw-semibold" style="color: #f7f5f4 !important">
                                                 {{ session('pesan') }}
                                             </span>
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -77,7 +77,7 @@
 
                                     @if (session('success'))
                                         <div class="alert alert-success alert-dismissible" role="alert">
-                                            <span class="fw-semibold" style="color: #00c700 !important">
+                                            <span class="fw-semibold" style="color: #0c0c0c !important">
                                                 {{ session('success') }}
                                             </span>
                                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>

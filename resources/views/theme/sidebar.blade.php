@@ -18,17 +18,17 @@
     <div class="menu-inner-shadow"></div>
 
     <ul class="menu-inner py-1">
-        {{-- <li class="menu-item {{ request()->segment(1) == 'dashboard' ? 'active' : '' }}">
+        <li class="menu-item {{ request()->segment(1) == 'dashboard' ? 'active' : '' }}">
             <a href="{{ route('dashboard') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-dashboard" style="font-size: 1rem"></i>
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
-        <li class="menu-item {{ request()->segment(2) == 'JenisIzin' ? 'active' : '' }}">
-            <a href="{{ route('JenisIzin.index') }}" class="menu-link">
+        <li class="menu-item {{ request()->segment(1) == 'task' ? 'active' : '' }}">
+            <a href="{{ route('task.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-book-add" style="font-size: 1rem"></i>
-                <div data-i18n="Analytics">Jenis Izin</div>
+                <div data-i18n="Analytics">Task</div>
             </a>
-        </li> --}}
+        </li>
     </ul>
 </aside>
