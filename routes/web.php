@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TaskController;
 
+// Halaman utama
 Route::get('/', function () {
     return view('auth.login');
 });

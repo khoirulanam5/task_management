@@ -43,16 +43,19 @@ class User extends Authenticatable implements JWTSubject
         ];
     }
 
+    // relasi ke tabel task
     public function tasks() 
     {
         return $this->hasMany(Task::class, 'user_id');
     }
 
+    // mengembalikan user_id
     public function getJWTIdentifier()
     {
         return $this->getKey();
     }
 
+    // jika ingin menambahkan informasi tambahan ke dalam token
     public function getJWTCustomClaims()
     {
         return [];

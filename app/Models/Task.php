@@ -13,6 +13,7 @@ class Task extends Model
 
     protected $fillable = ['user_id', 'title', 'description', 'status', 'deadline', 'created_by'];
 
+    // relasi dengan tabel user
     public function user() 
     {
         return $this->belongsTo(User::class, 'user_id');

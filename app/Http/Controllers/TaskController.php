@@ -13,13 +13,18 @@ class TaskController extends Controller
      */
     public function index(Request $request)
     {
+        // menampilkan data task berdasarkan user dan mengurutkan berdasarkan deadline terdekat
         $task = Task::where('user_id', auth()->user()->user_id)->orderBy('deadline', 'asc');
 
+        // kondisi pencarian berdasarkan status
         if ($request->filled('status')) {
             $task->where('status', $request->status);
         }
         
+        // ambil hasil dari tabel task
         $tasks = $task->get();
+
+        // daftar status yang akan digunakan untuk filter
         $status = ['To Do', 'In Progress', 'Done'];
 
         return view('pages.task.index', compact('tasks', 'status'));
