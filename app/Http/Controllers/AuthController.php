@@ -24,16 +24,20 @@ class AuthController extends Controller
             'password' => 'required|string'
         ]);
 
+        // Ambil email dan password dari request
         $credentials = $request->only('email', 'password');
 
         try {
+            // autentikasi menggunakan JWT
             if (!$token = JWTAuth::attempt($credentials)) {
                 return back()->with('pesan', 'Email atau password salah.');
             }
         } catch (JWTException $err) {
+            // Jika ada error (misalnya server issue)
             return back()->with('pesan', 'Terjadi kesalahan saat membuat token.');
         }
 
+        // akan menyimpan user yang sedang login ke session Laravel
         Auth::login(auth()->user());
         $request->session()->regenerate();
         session(['jwt_token' => $token]);
@@ -44,12 +48,16 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         try {
+            // Invalidate token JWT yang sedang aktif
             JWTAuth::invalidate(JWTAuth::getToken());
         } catch (JWTException $err) {
 
         }
 
+        // Hapus token JWT yang tersimpan di session
         $request->session()->forget('jwt_token');
+
+        // Hapus semua data session yang aktif
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect()->route('login');
@@ -58,9 +66,13 @@ class AuthController extends Controller
     public function log()
     {
         try {
+            // Ambil token JWT dari request
             $user = JWTAuth::parseToken()->authenticate();
+
+            // Jika token valid dan user ditemukan, kembalikan data user dalam bentuk JSON
             return response()->json($user);
         } catch (\Exception $err) {
+            // Jika terjadi error (misalnya token tidak valid, kadaluarsa
             return response()->json(['error' => 'Token tidak valid atau kadaluarsa'], 401);
         }
     }
